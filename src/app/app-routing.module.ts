@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'entrar', pathMatch: 'full' },
   { path: 'entrar', loadChildren: './pages/entrar/entrar.module#EntrarPageModule' },
   { path: 'entrar', loadChildren: './pages/entrar/entrar.module#EntrarPageModule' },
-  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+  { path: 'cadastro-usuario', loadChildren: './pages/cadastro-usuario/cadastro-usuario.module#CadastroUsuarioPageModule' },
 ];
 
 @NgModule({

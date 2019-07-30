@@ -5,15 +5,15 @@
 
   <div class="ion-text-center">
     <h6 >Faça seu login</h6>
-    <ion-input class="inputLogin"  type="text" placeholder="Email"></ion-input>
-    <ion-input class="inputLogin" type="password" placeholder="Senha"></ion-input>
+    <ion-input class="inputLogin ion-padding"  type="text" placeholder="Email" [(ngModel)]="funcionario.email"></ion-input>
+    <ion-input class="inputLogin ion-padding" type="password" placeholder="Senha" [(ngModel)]="funcionario.senha"></ion-input>
     <ion-input class="inputLoginSubmit" type="submit" value="Entrar"></ion-input>
     <h6>Esqueceu sua senha?</h6>
   </div>
 
   <div class="ion-text-center " id="divCadastro">
     <h6>Não perca mais dinheiro!</h6>
-    <p class="cadastrar"><i>Cadastre-se agora</i></p>
+    <p class="cadastrar" (click)="direcionarPaginaCadastroUsuario()"><i>Cadastre-se agora</i></p>
   </div>
 
 </ion-content>

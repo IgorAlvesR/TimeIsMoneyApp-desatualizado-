@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Funcionario } from 'src/app/Models/funcionario';
 
 @Component({
   selector: 'app-entrar',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntrarPage implements OnInit {
 
-  constructor() { }
+  public funcionario: Funcionario = {};
+
+  constructor(
+    private rota: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  direcionarPaginaCadastroUsuario() {
+    this.rota.navigate(['cadastro-usuario']);
   }
 
 }
