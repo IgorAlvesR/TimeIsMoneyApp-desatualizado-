@@ -1,0 +1,36 @@
+
+ion-toolbar{
+    --background: var(--ion-color-padraoApp);
+    color: white;
+    height: 38px;
+    border-radius: 3px;
+}
+
+.header-top{
+  display: flex;
+  justify-content: space-between;    
+  
+}
+
+.horaData{
+    text-align: center;
+    color: var(--ion-color-padraoApp);
+    margin: 0 auto;
+}
+
+h5{
+    color: var(--ion-color-padraoApp);
+}
+
+
+.digitalHora{
+    margin-top: 15%;
+}
+
+.logoRegistro{
+    margin-top: 15%;
+    width: 25%;
+    height: 25%;
+    border: 1px solid var(--ion-color-padraoApp);
+    border-radius: 5px;
+}

@@ -17,7 +17,6 @@ export class CadastroUsuarioPage implements OnInit {
   private carregando: any;
 
   constructor(
-    private rota: Router,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private servicoAutenticacao: AutenticacaoService
@@ -26,15 +25,10 @@ export class CadastroUsuarioPage implements OnInit {
   ngOnInit() {
   }
 
-
-  direcionarPaginaLogin() {
-    this.rota.navigate(['entrar']);
-  }
-
   async registrarFuncionario() {
     await this.presentLoading();
     try {
-      await this.servicoAutenticacao.registrarFuncionario(this.funcionario);
+      await this.servicoAutenticacao.registrarUsuarioFuncionario(this.funcionario);
     } catch (error) {
       let mensagem: string;
       switch (error.code) {

@@ -1,4 +1,5 @@
 export interface Funcionario {
+    id?: string;
     nome?: string;
     funcao?: string;
     salarioBruto?: number;

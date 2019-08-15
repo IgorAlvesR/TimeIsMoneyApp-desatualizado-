@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar class="header-top">
+    <div class="header-top">
+      <p>REGISTRO INÍCIO</p>
+      <p (click)="logout()">SAIR</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <div class="ion-padding horaData">
+      <h1 class="horaData">{{this.horaExtraInicio.hora}}</h1>
+      <h5 class="horaData">{{this.horaExtraInicio.data}}</h5>
+    </div>
+  </ion-item>
+  <hr>
+
+
+
+  <div class="ion-text-center ion-padding ">
+    <img class="logoRegistro" src="../../../assets/imagens/logoRegistroHora.svg">
+  </div>
+
+  <div class="ion-text-center ion-padding digitalHora">
+    <img src="../../../assets/imagens/digitalRegistro.svg" (click)="registrarInicioHoraExtra();">
+    <h5><strong>Iniciar Hora Extra</strong></h5>
+  </div>
+
+</ion-content>
+
+
+<ion-toolbar>
+
+</ion-toolbar>

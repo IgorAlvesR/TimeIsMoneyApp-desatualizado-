@@ -1,5 +1,5 @@
 ion-content{
-    --background: url('../../../assets/imagens/superior.svg') no-repeat top ,url('../../../assets/imagens/inferior.svg') no-repeat bottom;
+    --background: url('../../../assets/imagens/superior.svg') no-repeat top / 100% ,url('../../../assets/imagens/inferior.svg') no-repeat bottom / 100%;
 }
 
 .logo{
