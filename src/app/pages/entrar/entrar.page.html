@@ -11,7 +11,7 @@
     <h6>Esqueceu sua senha?</h6>
   </div>
 
-  <div class="ion-text-center " id="divCadastro">
+  <div class="ion-text-center " id="divCadastro" [hidden]="keyboard.isVisible">
     <h6>Não perca mais dinheiro!</h6>
     <p class="cadastrar" button [routerLink]="['/cadastro-usuario']"><i>Cadastre-se agora</i></p>
   </div>

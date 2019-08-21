@@ -1,5 +1,10 @@
 ion-content{
     --background: url('../../../assets/imagens/superior.svg')  no-repeat top / 100% ,url('../../../assets/imagens/inferior.svg') no-repeat bottom / 100%;
+
+    .ion-icon{
+        color: white;
+    }
+
 }
 
 .logo{

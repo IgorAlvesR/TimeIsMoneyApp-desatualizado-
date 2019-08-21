@@ -25,12 +25,14 @@
 
   <div class="ion-text-center ion-padding digitalHora">
     <img src="../../../assets/imagens/digitalRegistro.svg" (click)="registrarInicioHoraExtra();">
-    <h5><strong>Iniciar Hora Extra</strong></h5>
+    <p class="finalizarHora"><strong>Toque para finalizar hora extra</strong></p>
   </div>
 
 </ion-content>
 
 
 <ion-toolbar>
-
+  <div class="menu">
+  <ion-icon name="clock" [routerLink]="['/relatorio-hora-extra']"></ion-icon>
+  </div>
 </ion-toolbar>

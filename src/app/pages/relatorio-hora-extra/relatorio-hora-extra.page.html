@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RelatorioHoraExtra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-grid *ngFor="let hora of horas | async">
+    <ion-row>
+      <ion-col>
+        <div>
+         {{hora.hora}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{hora.data}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

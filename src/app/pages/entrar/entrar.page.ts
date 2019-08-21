@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/Models/funcionario';
 import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+
 
 @Component({
   selector: 'app-entrar',
@@ -18,10 +20,12 @@ export class EntrarPage implements OnInit {
     private rota: Router,
     private servicoAutenticacao: AutenticacaoService,
     private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public keyboard: Keyboard
   ) { }
 
   ngOnInit() {
+  
   }
 
 

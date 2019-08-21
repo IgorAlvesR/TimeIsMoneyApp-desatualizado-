@@ -4,7 +4,6 @@ import { HoraExtraInicio } from 'src/app/Models/hora-extra-inicio';
 import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
 import { HoraExtraService } from 'src/app/servicos/hora-extra.service';
 import { LoadingController, ToastController, NavController } from '@ionic/angular';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-hora-extra',
