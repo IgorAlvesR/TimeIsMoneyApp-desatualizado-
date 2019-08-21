@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { HoraExtraInicio } from 'src/app/Models/hora-extra-inicio';
+
 import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
 import { HoraExtraService } from 'src/app/servicos/hora-extra.service';
 import { LoadingController, ToastController, NavController } from '@ionic/angular';
+import { HoraExtra } from 'src/app/Models/hora-extra';
 
 @Component({
   selector: 'app-registro-hora-extra',
@@ -13,7 +14,7 @@ import { LoadingController, ToastController, NavController } from '@ionic/angula
 export class RegistroHoraExtraPage implements OnInit {
 
 
-  private horaExtraInicio: HoraExtraInicio = {};
+  private horaExtraInicio: HoraExtra = {};
   private carregando: any;
   
 
@@ -27,8 +28,8 @@ export class RegistroHoraExtraPage implements OnInit {
 
   ngOnInit() {
     setInterval(() => {
-      this.horaExtraInicio.hora = moment().locale('pt-br').format('LTS');
-      this.horaExtraInicio.data = moment().locale('pt-br').format('LL');
+      this.horaExtraInicio.horaInicial = moment().locale('pt-br').format('LTS');
+      this.horaExtraInicio.dataInicial = moment().locale('pt-br').format('LL');
     }, 1000)
   }
 
@@ -38,12 +39,12 @@ export class RegistroHoraExtraPage implements OnInit {
     await this.presentLoading();
     let horas = moment().hour();
     let minutos = moment().minute() / 60;
-    this.horaExtraInicio.horaCalculo = horas + minutos;
-    this.horaExtraInicio.hora;
+    this.horaExtraInicio.horaCalculoInicial = horas + minutos;
+    this.horaExtraInicio.horaInicial;
     this.horaExtraInicio.userId = this.authService.getAuth().currentUser.uid;
 
     try{
-      await this.horaSevice.registrarHoraInicial(this.horaExtraInicio);
+      await this.horaSevice.registrarHoraExtra(this.horaExtraInicio);
       await this.carregando.dismiss();
       await this.navCtrl.navigateRoot('registro-final-hora-extra');
      

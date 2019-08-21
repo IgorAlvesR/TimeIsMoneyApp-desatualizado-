@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HoraExtraService } from 'src/app/servicos/hora-extra.service';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { HoraExtraInicio } from 'src/app/Models/hora-extra-inicio';
 import { Observable } from 'rxjs';
+import { HoraExtra } from 'src/app/Models/hora-extra';
 
 @Component({
   selector: 'app-relatorio-hora-extra',
@@ -11,11 +11,11 @@ import { Observable } from 'rxjs';
 })
 export class RelatorioHoraExtraPage implements OnInit {
 
-  horasRef: AngularFirestoreCollection<HoraExtraInicio>;
-  horas: Observable<HoraExtraInicio[]>;
+  horasRef: AngularFirestoreCollection<HoraExtra>;
+  horas: Observable<HoraExtra[]>;
   
   constructor(private horasService: HoraExtraService, private afs:AngularFirestore) {
-    this.horasRef = this.afs.collection('HoraExtraInicio');
+    this.horasRef = this.afs.collection('HoraExtra');
     this.horas = this.horasRef.valueChanges();
   }
 

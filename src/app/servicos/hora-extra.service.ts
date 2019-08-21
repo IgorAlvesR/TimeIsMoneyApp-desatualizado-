@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HoraExtraInicio } from '../Models/hora-extra-inicio';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { HoraExtraFinal } from '../Models/hora-extra-final';
+import { HoraExtra } from '../Models/hora-extra';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,24 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class HoraExtraService {
 
-  private colecaoHoraExtraInicio: AngularFirestoreCollection<HoraExtraInicio>;
-  private colecaoHoraExtraFinal: AngularFirestoreCollection<HoraExtraFinal>;
+  private colecaoHoraExtra: AngularFirestoreCollection<HoraExtra>;
+  
   
   
 
   constructor(private afs: AngularFirestore) {
     //cria uma referencia da coleção HoraExtraInicio e HoraExtraFinal
-    this.colecaoHoraExtraInicio = this.afs.collection<HoraExtraInicio>('HoraExtraInicio');
-    this.colecaoHoraExtraFinal = this.afs.collection<HoraExtraFinal>('HoraExtraFinal');
+    this.colecaoHoraExtra = this.afs.collection<HoraExtraInicio>('HoraExtra');
   }
 
-  registrarHoraInicial(horaExtraInicio: HoraExtraInicio) {
-    return this.colecaoHoraExtraInicio.add(horaExtraInicio);
+  registrarHoraExtra(horaExtraInicio: HoraExtraInicio) {
+    return this.colecaoHoraExtra.add(horaExtraInicio);
   }
 
-  registrarHoraFinal(horaExtraFinal: HoraExtraFinal) {
-    return this.colecaoHoraExtraFinal.add(horaExtraFinal);
-  }
-
+ 
   
 }
