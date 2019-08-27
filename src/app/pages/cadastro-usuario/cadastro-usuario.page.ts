@@ -28,7 +28,12 @@ export class CadastroUsuarioPage implements OnInit {
   async registrarFuncionario() {
     await this.presentLoading();
     try {
-      await this.servicoAutenticacao.registrarUsuarioFuncionario(this.funcionario);
+      if(this.funcionario.nome == "" || this.funcionario.salarioBruto == null || this.funcionario.funcao == ""){
+        this.presentToast('Preencha todos os campos!')
+      }else {
+        await this.servicoAutenticacao.registrarUsuarioFuncionario(this.funcionario)
+      }
+      
     } catch (error) {
       let mensagem: string;
       switch (error.code) {

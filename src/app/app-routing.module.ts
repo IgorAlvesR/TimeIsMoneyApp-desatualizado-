@@ -17,7 +17,11 @@ const routes: Routes = [
     loadChildren: './pages/registro-final-hora-extra/registro-final-hora-extra.module#RegistroFinalHoraExtraPageModule',
     canActivate: [AuthGuard]
   },
-  { path: 'relatorio-hora-extra', loadChildren: './pages/relatorio-hora-extra/relatorio-hora-extra.module#RelatorioHoraExtraPageModule' },
+  { 
+    path: 'relatorio-hora-extra', 
+    loadChildren: './pages/relatorio-hora-extra/relatorio-hora-extra.module#RelatorioHoraExtraPageModule',
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HoraExtraService } from 'src/app/servicos/hora-extra.service';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subscribable, Subscription } from 'rxjs';
 import { HoraExtra } from 'src/app/Models/hora-extra';
+import { forEach } from '@angular/router/src/utils/collection';
+import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
 
 @Component({
   selector: 'app-relatorio-hora-extra',
@@ -11,21 +13,26 @@ import { HoraExtra } from 'src/app/Models/hora-extra';
 })
 export class RelatorioHoraExtraPage implements OnInit {
 
-  horasRef: AngularFirestoreCollection<HoraExtra>;
-  horas: Observable<HoraExtra[]>;
+ public horasExtras = new Array<HoraExtra>();
+ private horasExtrasSubscription: Subscription;
   
-  constructor(private horasService: HoraExtraService, private afs:AngularFirestore) {
-    this.horasRef = this.afs.collection('HoraExtra');
-    this.horas = this.horasRef.valueChanges();
+  constructor(private authService: AutenticacaoService, private horaService: HoraExtraService) {
+    this.getHoras();
   }
 
   ngOnInit() {
-
+   
   }
 
+  ngOnDestroy(){
+    this.horasExtrasSubscription.unsubscribe();
+  }
 
-
-
+  public getHoras(){
+    this.horasExtrasSubscription = this.horaService.getHorasExtras().subscribe(dados => {
+      this.horasExtras = dados;
+    }); 
+  }
 
 
 }

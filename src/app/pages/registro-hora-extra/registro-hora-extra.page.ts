@@ -5,6 +5,8 @@ import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
 import { HoraExtraService } from 'src/app/servicos/hora-extra.service';
 import { LoadingController, ToastController, NavController } from '@ionic/angular';
 import { HoraExtra } from 'src/app/Models/hora-extra';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-hora-extra',
@@ -16,15 +18,19 @@ export class RegistroHoraExtraPage implements OnInit {
 
   private horaExtraInicio: HoraExtra = {};
   private carregando: any;
-  
 
   constructor(
     private authService: AutenticacaoService,
     private horaSevice: HoraExtraService,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private navCtrl: NavController
-  ) {}
+    private navCtrl: NavController,
+    private afs: AngularFirestore,
+    private router: Router
+  ) {
+    
+  }
+
 
   ngOnInit() {
     setInterval(() => {
@@ -42,12 +48,22 @@ export class RegistroHoraExtraPage implements OnInit {
     this.horaExtraInicio.horaCalculoInicial = horas + minutos;
     this.horaExtraInicio.horaInicial;
     this.horaExtraInicio.userId = this.authService.getAuth().currentUser.uid;
+    this.horaExtraInicio.dataInicial = moment().locale('pt-br').format('L');
+    this.horaExtraInicio.id = this.afs.createId();
 
+    let navigationExtras: NavigationExtras = {
+      state: {
+        horaExtra: this.horaExtraInicio
+      }
+    };
+    
+    
     try{
+      
       await this.horaSevice.registrarHoraExtra(this.horaExtraInicio);
       await this.carregando.dismiss();
-      await this.navCtrl.navigateRoot('registro-final-hora-extra');
-     
+      await this.router.navigate(['registro-final-hora-extra'], navigationExtras);
+    
     }catch(error){
       console.error(error);
       this.presentToast(error);
@@ -56,6 +72,8 @@ export class RegistroHoraExtraPage implements OnInit {
   }
 
   async logout() {
+
+    await this.presentLoading();
     try {
       await this.authService.logout();
     } catch (error) {
@@ -75,6 +93,10 @@ export class RegistroHoraExtraPage implements OnInit {
     const toast = await this.toastCtrl.create({ message: mensagem, duration: 2000 });
     toast.present();
   }
+
+
+
+  
 
 
 }

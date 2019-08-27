@@ -5,24 +5,9 @@
 </ion-header>
 
 <ion-content>
-
-  
-  <ion-grid *ngFor="let hora of horas | async">
-    <ion-row>
-      <ion-col>
-        <div>
-         {{hora.horaInicial}}
-         {{hora.horaFinal}}
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          {{hora.dataInicial}}
-          {{hora.dataFinal}}
-        </div>
-      </ion-col>
+  <ion-grid>
+    <ion-row *ngFor='let h of horasExtras'>
+        <ion-col>{{h.horaFinal}}|{{h.horaInicial}}|{{h.dataInicial}}</ion-col>
     </ion-row>
   </ion-grid>
-
-
 </ion-content>

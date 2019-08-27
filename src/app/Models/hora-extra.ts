@@ -1,5 +1,4 @@
-export interface HoraExtra
- {
+export interface HoraExtra {
     id?: string;
     horaCalculoFinal?: number;
     horaInicial?: any;
@@ -10,5 +9,4 @@ export interface HoraExtra
     horaCalculoInicial?: number;
     horaFinal?: any;
     dataFinal?: any;
-   
 }
