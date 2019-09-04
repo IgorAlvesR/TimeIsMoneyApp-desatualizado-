@@ -33,7 +33,9 @@ import { HoraExtraService } from './servicos/hora-extra.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Keyboard,
     AutenticacaoService,
-    HoraExtraService
+    HoraExtraService,
+    GeoLocation,
+    NativeGeoCorder
   ],
   bootstrap: [AppComponent]
 })
